@@ -1,6 +1,6 @@
 # Created June 29, 2021. Creates a timestamped youtube link.
-# This entire file does basically the exact same thing as lines
-# 36-39 in the format_json_file.py file in the LivestreamDirectory.
+# This file does basically the same thing as lines 36-39 in 
+# the format_json_file.py file in the LivestreamDirectory.
 
 while True:
     link = input("What's the link:  ")
