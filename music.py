@@ -1,4 +1,4 @@
-# Created May 4, 2021
+# Created May 4, 2021 -> https://towardsdatascience.com/mathematics-of-music-in-python-b7d838c84f72
 
 import numpy as np
 

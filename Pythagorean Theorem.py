@@ -1,5 +1,4 @@
 # Created April 8th 2021
-
 import math
 
 def pythagorean_theorem(a, b):
