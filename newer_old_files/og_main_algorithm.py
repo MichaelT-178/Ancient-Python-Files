@@ -2,6 +2,7 @@
 This program reads the all-timestamps.txt file and writes
 the song information to the og_song_list.json file in json format.
 Performs error and format checking before writing to file.
+I made this in summer 2022.
 """
 import threading as thread
 import json
