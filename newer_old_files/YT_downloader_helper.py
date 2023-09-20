@@ -1,8 +1,15 @@
-#Made on 9/18/2023. Assume valid input
+"""
+This program is a command line interface program 
+for the "yt-dlp" Youtube downloader python library. 
+Allows you to choose name of the saved file, choose 
+video time intervals, and download the youtube link.
+Made on 9/18/2023 
+"""
 
 import os; os.system('clear')
 from pytube import YouTube
 from termcolor import colored as c
+import webbrowser
 
 CURRENT_DOWNLOAD_PATH = "../../a_songs_folder/"
 
@@ -10,7 +17,7 @@ def time_to_seconds(time) -> int:
     t = [int(x) for x in time.split(":")]
     return t[1] + (t[0] * 60) if (len(t) == 2) else t[2] + (t[1] * 60) + (t[0] * 3600)
 
-def seconds_to_time(seconds):
+def seconds_to_time(seconds) -> str:
     if seconds < 60:
         return f"0:{seconds:02}"
     elif seconds < 3600:
@@ -77,9 +84,14 @@ if download_specific_part.upper() in ["YES", "Y"]:
 
         open_folder = input("\nOpen folder? : ")
 
-        if open_folder.upper() in ["YES", "Y"]:
+        if open_folder.strip().upper() in ["YES", "Y"]:
             os.chdir("..")
             os.system("open a_songs_folder")
+        
+        open_converter = input("\nOpen website to convert to mp4? : ")
+        
+        if open_converter.strip().upper() in ["YES", "Y"]:
+            webbrowser.open("https://cloudconvert.com/mp4-converter")
 
         exit(0)
 
@@ -103,6 +115,12 @@ if download_ready.upper() in ["YES", "Y"]:
     print(c("VIDEO SUCCESSFULLY DOWNLOADED", 'green'))
     open_folder = input("\nOpen folder? : ")
     
-    if open_folder.upper() in ["YES", "Y"]:
+    if open_folder.strip().upper() in ["YES", "Y"]:
         os.chdir("..")
         os.system("open a_songs_folder")
+
+    open_converter = input("\nOpen website to convert to mp4? : ")
+    
+    if open_converter.strip().upper() in ["YES", "Y"]:
+        webbrowser.open("https://cloudconvert.com/mp4-converter")
+
