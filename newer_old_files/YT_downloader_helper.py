@@ -9,7 +9,7 @@ Made on 9/18/2023
 import os; os.system('clear')
 from pytube import YouTube
 from termcolor import colored as c
-import webbrowser
+import webbrowser #Just converting to mp4 on website is way faster than function.
 
 CURRENT_DOWNLOAD_PATH = "../../a_songs_folder/"
 
@@ -65,18 +65,19 @@ if download_specific_part.upper() in ["YES", "Y"]:
     download_length = seconds_to_time(time_to_seconds(end_time) - time_to_seconds(start_time))
 
     print(f"Length of download will be -> {download_length}")
+
+    new_name = ""
+
+    rename = input("Do you want to rename the file? : ")
+
+    if rename.upper() in ["YES", "Y"]:
+        name = input("\nName of file (no extension): ")
+        new_name = f'-o "{name}.%(ext)s"'
+
     download_with_time = input("\nReady to download? : ")
 
     if download_with_time.upper() in ["YES", "Y"]:
         os.chdir(CURRENT_DOWNLOAD_PATH)
-
-        new_name = ""
-
-        rename = input("Do you want to rename the file? : ")
-
-        if rename.upper() in ["YES", "Y"]:
-            name = input("\nName of file (no extension): ")
-            new_name = f'-o "{name}.%(ext)s"'
 
         print()
         os.system(f'yt-dlp {new_name.strip()} "{url.strip()}" --download-sections "*{start_time}-{end_time}"')
@@ -96,18 +97,18 @@ if download_specific_part.upper() in ["YES", "Y"]:
         exit(0)
 
 
+new_name = ""
+
+rename = input("Do you want to rename the file? : ")
+
+if rename.upper() in ["YES", "Y"]:
+    name = input("\nName of file (no extension): ")
+    new_name = f'-o "{name.strip()}.%(ext)s"'
+
 download_ready = input("\nReady to download? : ")
 
 if download_ready.upper() in ["YES", "Y"]:
     os.chdir(CURRENT_DOWNLOAD_PATH)
-
-    new_name = ""
-
-    rename = input("Do you want to rename the file? : ")
-
-    if rename.upper() in ["YES", "Y"]:
-        name = input("\nName of file (no extension): ")
-        new_name = f'-o "{name.strip()}.%(ext)s"'
 
     print()
     os.system(f'yt-dlp {new_name} "{url.strip()}"')
