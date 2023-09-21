@@ -94,6 +94,8 @@ if download_specific_part.upper() in ["YES", "Y"]:
         if open_converter.strip().upper() in ["YES", "Y"]:
             webbrowser.open("https://cloudconvert.com/mp4-converter")
 
+        print(c("Done", 'green'))
+
         exit(0)
 
 
@@ -101,13 +103,13 @@ new_name = ""
 
 rename = input("Do you want to rename the file? : ")
 
-if rename.upper() in ["YES", "Y"]:
+if rename.strip().upper() in ["YES", "Y"]:
     name = input("\nName of file (no extension): ")
     new_name = f'-o "{name.strip()}.%(ext)s"'
 
 download_ready = input("\nReady to download? : ")
 
-if download_ready.upper() in ["YES", "Y"]:
+if download_ready.strip().upper() in ["YES", "Y"]:
     os.chdir(CURRENT_DOWNLOAD_PATH)
 
     print()
@@ -124,4 +126,5 @@ if download_ready.upper() in ["YES", "Y"]:
     
     if open_converter.strip().upper() in ["YES", "Y"]:
         webbrowser.open("https://cloudconvert.com/mp4-converter")
-
+        
+    print(c("Done", 'green'))
