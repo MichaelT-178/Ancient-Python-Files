@@ -365,6 +365,8 @@ for song in songs:
             other += "The Allman Brothers, " if ("Allman" in artist) else ""
             other += "Rap, " if ("Nelly" in artist or "Flo Rida" in artist) else ""
             other += "The Extreme, " if ("Extreme" == artist) else ""
+            other += "Sting, " if ("The Police" == artist) else ""
+
             other += title.replace("Grey", "Gray") + ", " if ("Grey" in title) else ""
             other += artist.replace("Grey", "Gray") + ", " if ("Grey" in artist) else ""
             other += "I Am A Man of Constant Sorrow, " if ("Man Of Constant Sorrow" in title) else ""
