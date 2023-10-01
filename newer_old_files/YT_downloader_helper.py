@@ -7,8 +7,19 @@ Made on 9/18/2023
 """
 
 import os; os.system('clear')
-from pytube import YouTube
-from termcolor import colored as c
+
+try:
+    from pytube import YouTube
+except ModuleNotFoundError:
+    os.system("pip3 install pytube")
+    from pytube import YouTube
+
+try:
+    from termcolor import colored as c
+except ModuleNotFoundError:
+    os.system("pip3 install termcolor")
+    from termcolor import colored as c
+
 import webbrowser #Just converting to mp4 on website is way faster than function.
 
 CURRENT_DOWNLOAD_PATH = "../../a_songs_folder/"
